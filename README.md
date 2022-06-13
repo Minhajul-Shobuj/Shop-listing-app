@@ -1,4 +1,4 @@
-![React Shop-Listig App](./banner.png)
+![React Shop-Listig App](./Banner.png)
 
 # React Shop-Listig App.
 
