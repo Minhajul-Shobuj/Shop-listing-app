@@ -53,13 +53,13 @@ function ShopList({ shop }) {
             </p>
             <p>
               Service Hours:{' '}
-              <span className={styles.time}>
+              <span className={getClasses([styles.todoText])}>
                 {shop.openingTime} to {shop.closingTime}
               </span>
             </p>
-            <p className={styles.time}>
-              {format(new Date(shop.time), 'p, MM/dd/yyyy')}
-            </p>
+            <small className={styles.time}>
+              Added on- {format(new Date(shop.time), 'p, MM/dd/yyyy')}
+            </small>
           </div>
         </div>
         <div className={styles.todoActions}>
