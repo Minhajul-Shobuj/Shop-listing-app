@@ -1,13 +1,12 @@
 import { format } from 'date-fns';
 import { motion } from 'framer-motion';
 import toast from 'react-hot-toast';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { MdDelete, MdEdit } from 'react-icons/md';
 import { useDispatch } from 'react-redux';
-import { deleteShop, updateShop } from '../slices/shopSlies';
+import { deleteShop } from '../slices/shopSlies';
 import styles from '../styles/modules/todoItem.module.scss';
 import { getClasses } from '../utils/getClasses';
-import CheckButton from './CheckButton';
 import ShopModal from './ShopModal';
 
 const child = {
@@ -20,23 +19,7 @@ const child = {
 
 function ShopList({ shop }) {
   const dispatch = useDispatch();
-  const [checked, setChecked] = useState(false);
   const [updateModalOpen, setUpdateModalOpen] = useState(false);
-
-  useEffect(() => {
-    if (shop.shopName === 'complete') {
-      setChecked(true);
-    } else {
-      setChecked(false);
-    }
-  }, [shop.shopName]);
-
-  const handleCheck = () => {
-    setChecked(!checked);
-    dispatch(
-      updateShop({ ...shop, status: checked ? 'incomplete' : 'complete' })
-    );
-  };
 
   const handleDelete = () => {
     dispatch(deleteShop(shop.id));
@@ -51,7 +34,6 @@ function ShopList({ shop }) {
     <>
       <motion.div className={styles.item} variants={child}>
         <div className={styles.todoDetails}>
-          <CheckButton checked={checked} handleCheck={handleCheck} />
           <div className={styles.texts}>
             <p
               className={getClasses([
