@@ -51,6 +51,12 @@ function ShopList({ shop }) {
               Location:{' '}
               <span className={getClasses([styles.todoText])}>{shop.area}</span>
             </p>
+            <p>
+              Service Hours:{' '}
+              <span className={styles.time}>
+                {shop.openingTime} to {shop.closingTime}
+              </span>
+            </p>
             <p className={styles.time}>
               {format(new Date(shop.time), 'p, MM/dd/yyyy')}
             </p>
