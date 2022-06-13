@@ -5,7 +5,7 @@ import styles from '../styles/modules/app.module.scss';
 import ShopModal from './ShopModal';
 import { updateFilterStatus } from '../slices/shopSlies';
 
-function AppHeader({ handleFilter }) {
+function AppHeader() {
   const [modalOpen, setModalOpen] = useState(false);
   const initialFilterStatus = useSelector((state) => state.shop.filterStatus);
   const [filterStatus, setFilterStatus] = useState(initialFilterStatus);
@@ -22,8 +22,7 @@ function AppHeader({ handleFilter }) {
       <Button variant="primary" onClick={() => setModalOpen(true)}>
         Add Shop
       </Button>
-      <input type="text" id="status" onChange={(e) => handleFilter(e)} />
-      {/* <SelectButton
+      <SelectButton
         id="status"
         onChange={(e) => updateFilter(e)}
         value={filterStatus}
@@ -31,7 +30,7 @@ function AppHeader({ handleFilter }) {
         <option value="all">All</option>
         <option value="area">Area</option>
         <option value="category">Category</option>
-      </SelectButton> */}
+      </SelectButton>
       <ShopModal type="add" modalOpen={modalOpen} setModalOpen={setModalOpen} />
     </div>
   );

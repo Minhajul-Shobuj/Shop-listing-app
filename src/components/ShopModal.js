@@ -32,17 +32,23 @@ const dropIn = {
 function ShopModal({ type, modalOpen, setModalOpen, shop }) {
   const dispatch = useDispatch();
   const [shopName, setshopName] = useState('');
-  const [area, setArea] = useState('thane');
-  const [category, setCategory] = useState('grocery');
+  const [area, setArea] = useState('');
+  const [openingTime, setOpeningTime] = useState('');
+  const [closingTime, setClosingTime] = useState('');
+  const [category, setCategory] = useState('');
 
   useEffect(() => {
     if (type === 'update' && shop) {
       setshopName(shop.shopName);
       setArea(shop.area);
+      setOpeningTime(shop.openingTime);
+      setClosingTime(shop.closingTime);
       setCategory(shop.category);
     } else {
       setshopName('');
       setArea('');
+      setOpeningTime('');
+      setClosingTime('');
       setCategory('');
     }
   }, [type, shop, modalOpen]);
@@ -53,14 +59,17 @@ function ShopModal({ type, modalOpen, setModalOpen, shop }) {
       toast.error('Please enter a name');
       return;
     }
-    if (shopName && area && category) {
+    if (shopName && area && category && openingTime && closingTime) {
+      console.log(shopName);
       if (type === 'add') {
         dispatch(
           addShop({
             id: uuid(),
             shopName,
-            category,
             area,
+            openingTime,
+            closingTime,
+            category,
             time: new Date().toLocaleString(),
           })
         );
@@ -118,6 +127,7 @@ function ShopModal({ type, modalOpen, setModalOpen, shop }) {
               <label htmlFor="title">
                 Name
                 <input
+                  pattern="^[A-Za-z]+[A-Za-z ]*$"
                   type="text"
                   id="shopName"
                   value={shopName}
@@ -131,6 +141,7 @@ function ShopModal({ type, modalOpen, setModalOpen, shop }) {
                   value={area}
                   onChange={(e) => setArea(e.target.value)}
                 >
+                  <option value="select">Select</option>
                   <option value="thane">Thane</option>
                   <option value="pune">Pune</option>
                   <option value="mumbai suburban">Mumbai Suburban</option>
@@ -140,6 +151,24 @@ function ShopModal({ type, modalOpen, setModalOpen, shop }) {
                   <option value="solapur">Solapur</option>
                 </select>
               </label>
+              <label htmlFor="time">
+                Open
+                <input
+                  type="time"
+                  id="openingTime"
+                  value={openingTime}
+                  onChange={(e) => setOpeningTime(e.target.value)}
+                />
+              </label>
+              <label htmlFor="time">
+                Close
+                <input
+                  type="time"
+                  id="closingTime"
+                  value={closingTime}
+                  onChange={(e) => setClosingTime(e.target.value)}
+                />
+              </label>
               <label htmlFor="type">
                 Category
                 <select
@@ -147,6 +176,7 @@ function ShopModal({ type, modalOpen, setModalOpen, shop }) {
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                 >
+                  <option value="select">Select</option>
                   <option value="grocery">Grocery</option>
                   <option value="butcher">Butcher</option>
                   <option value="baker">Baker</option>
