@@ -74,7 +74,6 @@ export const shopSlice = createSlice({
   },
 });
 
-export const { addShop, deleteShop, updateShop } = shopSlice.actions;
+export const { addShop, deleteShop, updateShop, updateFilterStatus } =
+  shopSlice.actions;
 export default shopSlice.reducer;
-
-//  updateFilterStatus

@@ -24,13 +24,13 @@ const child = {
 
 function AppContent() {
   const shopList = useSelector((state) => state.shop.shopList);
-  console.log(shopList);
+
   const filterStatus = useSelector((state) => state.shop.filterStatus);
 
   const sortedShopList = [...shopList];
   sortedShopList.sort((a, b) => new Date(b.time) - new Date(a.time));
 
-  const filteredTodoList = sortedShopList.filter((item) => {
+  const filteredShopList = sortedShopList.filter((item) => {
     if (filterStatus === 'all') {
       return true;
     }
@@ -45,8 +45,8 @@ function AppContent() {
       animate="visible"
     >
       <AnimatePresence>
-        {filteredTodoList && filteredTodoList.length > 0 ? (
-          filteredTodoList.map((shop) => <ShopList key={shop.id} shop={shop} />)
+        {filteredShopList && filteredShopList.length > 0 ? (
+          filteredShopList.map((shop) => <ShopList key={shop.id} shop={shop} />)
         ) : (
           <motion.p variants={child} className={styles.emptyText}>
             No Shop
