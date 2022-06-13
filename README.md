@@ -21,10 +21,6 @@ In the project, we created a Complete Listing Application with features. We have
 - Basic ReactJs knowledge
 - Basic HTML, CSS knowledge
 
-## Starter files
-
-You can find all the starter files in `starter-files` branch. You can to go to the `starter-files` branch and `download zip` the the starter files or You can clone the project and git checkout to `starter-files` branch.
-
 ## Getting Started
 
 ```shell
