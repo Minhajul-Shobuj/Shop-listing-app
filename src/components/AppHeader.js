@@ -12,7 +12,6 @@ function AppHeader() {
   const dispatch = useDispatch();
 
   const updateFilter = (e) => {
-    console.log(e.target.value);
     setFilterStatus(e.target.value);
     dispatch(updateFilterStatus(e.target.value));
   };

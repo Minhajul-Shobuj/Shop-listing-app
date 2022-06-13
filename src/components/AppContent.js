@@ -26,7 +26,6 @@ function AppContent() {
   const shopList = useSelector((state) => state.shop.shopList);
 
   const filterStatus = useSelector((state) => state.shop.filterStatus);
-  console.log(shopList);
 
   const sortedShopList = [...shopList];
   sortedShopList.sort((a, b) => new Date(b.time) - new Date(a.time));

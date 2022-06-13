@@ -60,7 +60,6 @@ function ShopModal({ type, modalOpen, setModalOpen, shop }) {
       return;
     }
     if (shopName && area && category && openingTime && closingTime) {
-      console.log(shopName);
       if (type === 'add') {
         dispatch(
           addShop({
@@ -77,7 +76,6 @@ function ShopModal({ type, modalOpen, setModalOpen, shop }) {
       }
       // update shop data
       if (type === 'update') {
-        console.log('update');
         if (shop.shopName !== shopName) {
           dispatch(updateShop({ ...shop, shopName }));
           toast.success('Task Updated successfully');
