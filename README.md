@@ -4,7 +4,7 @@
 
 A complete todo application with all features.
 
-**live demo: []()**
+**live demo: [Shop-Listing App](https://list-your-shop-react-redux.netlify.app/)**
 
 ---
 
