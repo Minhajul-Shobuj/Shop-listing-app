@@ -125,6 +125,7 @@ function ShopModal({ type, modalOpen, setModalOpen, shop }) {
               <label htmlFor="title">
                 Name
                 <input
+                  required
                   pattern="^[A-Za-z]+[A-Za-z ]*$"
                   type="text"
                   id="shopName"
@@ -135,6 +136,7 @@ function ShopModal({ type, modalOpen, setModalOpen, shop }) {
               <label htmlFor="location">
                 Area
                 <select
+                  required
                   id="area"
                   value={area}
                   onChange={(e) => setArea(e.target.value)}
@@ -152,6 +154,7 @@ function ShopModal({ type, modalOpen, setModalOpen, shop }) {
               <label htmlFor="time">
                 Open
                 <input
+                  required
                   type="time"
                   id="openingTime"
                   value={openingTime}
@@ -161,6 +164,7 @@ function ShopModal({ type, modalOpen, setModalOpen, shop }) {
               <label htmlFor="time">
                 Close
                 <input
+                  required
                   type="time"
                   id="closingTime"
                   value={closingTime}
@@ -170,6 +174,7 @@ function ShopModal({ type, modalOpen, setModalOpen, shop }) {
               <label htmlFor="type">
                 Category
                 <select
+                  required
                   id="category"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
