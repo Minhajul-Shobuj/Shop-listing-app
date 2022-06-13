@@ -35,13 +35,21 @@ function ShopList({ shop }) {
       <motion.div className={styles.item} variants={child}>
         <div className={styles.todoDetails}>
           <div className={styles.texts}>
-            <p
-              className={getClasses([
-                styles.todoText,
-                shop.status === 'complete' && styles['todoText--completed'],
-              ])}
-            >
-              {shop.shopName}
+            <p>
+              Shop Name:{' '}
+              <span className={getClasses([styles.todoText])}>
+                {shop.shopName}
+              </span>
+            </p>
+            <p>
+              Type:{' '}
+              <span className={getClasses([styles.todoText])}>
+                {shop.category}
+              </span>
+            </p>
+            <p>
+              Location:{' '}
+              <span className={getClasses([styles.todoText])}>{shop.area}</span>
             </p>
             <p className={styles.time}>
               {format(new Date(shop.time), 'p, MM/dd/yyyy')}
